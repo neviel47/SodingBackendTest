@@ -1,0 +1,29 @@
+<script>
+var input = [1,2];
+var sum = 0;
+
+while (add(input) <= 4000000) {
+    input.push(add(input)); 
+}
+
+input.forEach(function(num) {
+    if (num % 2 == 0)
+        sum = sum+num;
+});
+
+var allnum = input.join(", ");
+
+var setcontent = allnum + "<br />Even value sum total : " + sum;
+document.write(setcontent);
+
+function add(input)
+{
+    var addtotal = 0;
+    var arrcount = input.length;
+    var lasttwo = input.slice(arrcount-2);
+    lasttwo.forEach(function(thisnum) {
+        addtotal = addtotal+thisnum;
+    });
+    return addtotal;
+}
+</script>
